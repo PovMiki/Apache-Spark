@@ -34,6 +34,15 @@ services:
       - ml-network
     command: standalone
 
+  spark:
+    image: apache/spark:3.5.1
+    container_name: spark-container
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+
 networks:
   ml-network:
     driver: bridge
